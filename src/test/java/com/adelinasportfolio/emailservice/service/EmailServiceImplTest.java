@@ -42,6 +42,8 @@ class EmailServiceImplTest {
 
         assertThrows(EmailServiceException.class, () -> emailService.sendSimpleMessage(buildEmailEntity()));
 
+        verify(javaMailSender).send(message);
+
     }
 
     private SimpleMailMessage buildSimpleMailMessage() {
